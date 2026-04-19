@@ -10,6 +10,9 @@ function TaskList({ taskList, setTaskList }) {
 		setTaskList(newArr);
 	}
 
+	function handleTaskDel(TaskId) {
+		setTaskList(taskList.filter((task) => task.id !== TaskId));
+	}
 	return (
 		<Container>
 			{taskList.map((task) => {
@@ -28,7 +31,12 @@ function TaskList({ taskList, setTaskList }) {
 						</div>
 						<p className="grow m-1 text-2xl">{task.title}</p>
 						<FaRegEdit className="m-2 text-xl" />
-						<MdDelete className="m-2 text-xl" />
+						<MdDelete
+							onClick={() => {
+								handleTaskDel(task.id);
+							}}
+							className="m-2 text-xl"
+						/>
 					</div>
 				);
 			})}
