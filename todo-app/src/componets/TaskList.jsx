@@ -1,23 +1,23 @@
 import Container from "./Container";
-import { FaRegEdit,FaCheckCircle } from "react-icons/fa";
+import { FaRegEdit, FaCheckCircle } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-let count = 0;
+import { FaRegCircle } from "react-icons/fa6";
 
-function TaskList() {
-  const taskListArray = [
-    { id: 1, title: "rectjs", isCheck: true },
-    { id: 2, title: "DSA", isCheck: true },
-    { id: 3, title: "Backend", isCheck: true },
-    { id: 4, title: "JS", isCheck: true },
-  ];
-	return (
-		<Container>
-			<div className="border-2 flex p-2 rounded-sm">
-        <FaCheckCircle className="m-2 text-xl"/>
-				<p className="grow m-1 text-2xl">hi asit</p>
-        <FaRegEdit  className="m-2 text-xl"/>
-        <MdDelete className="m-2 text-xl"/>
-			</div>
+function TaskList({ taskList, setTaskList }) {
+  
+  return (
+    <Container>
+			{taskList.map((task) => {
+        return (
+        <div className="border-2 flex p-2 rounded-sm">
+					{task.status == true ?<FaCheckCircle className="m-2 text-xl" />: <FaRegCircle className="m-2 text-xl" />}
+					<p key={task.id} className="grow m-1 text-2xl">
+          {task.title}
+					</p>
+					<FaRegEdit className="m-2 text-xl" />
+					<MdDelete className="m-2 text-xl" />
+				</div>
+			)})}
 		</Container>
 	);
 }
