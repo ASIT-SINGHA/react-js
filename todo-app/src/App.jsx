@@ -5,14 +5,12 @@ import TaskList from "./componets/TaskList";
 import { useState } from "react";
 
 function App() {
-	let nextId = 0;
 	const [taskList, setTaskList] = useState([]);
 	const [completedTaskCount,setcompletedTaskCount]=useState(0)
 	return (
 		<Container>
 			<TaskStatus taskList={taskList}/>
 			<AddTask
-				nextId={nextId}
 				taskList={taskList}
 				setTaskList={setTaskList}
 			/>

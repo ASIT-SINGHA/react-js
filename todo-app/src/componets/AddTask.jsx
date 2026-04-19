@@ -1,14 +1,16 @@
 import { useState } from "react";
 import Container from "./Container";
 import { IoIosAddCircle } from "react-icons/io";
+let nextId=0;
 
-function AddTask({ taskList, setTaskList, nextId }) {
+function AddTask({ taskList, setTaskList }) {
 	const [tempTask, setTempTask] = useState("");
 
 	function handleAddTaskList() {
+		
 		setTaskList([
 			...taskList,
-			{ id: nextId, title: tempTask, status: false },
+			{ id: nextId++, title: tempTask, status: false },
 		]);
 		setTempTask("");
 	}
