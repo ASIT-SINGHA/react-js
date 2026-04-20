@@ -9,12 +9,12 @@ function App() {
 	const [completedTaskCount,setcompletedTaskCount]=useState(0)
 	return (
 		<Container>
-			<TaskStatus taskList={taskList}/>
+			<TaskStatus taskList={taskList} completedTaskCount={completedTaskCount}/>
 			<AddTask
 				taskList={taskList}
 				setTaskList={setTaskList}
 			/>
-			<TaskList taskList={taskList} setTaskList={setTaskList} />
+			<TaskList taskList={taskList} setTaskList={setTaskList} setcompletedTaskCount={setcompletedTaskCount} />
 		</Container>
 	);
 }
